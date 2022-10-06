@@ -31,9 +31,10 @@ require('packer').startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    -- or                          , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  use 'nvim-telescope/telescope-symbols.nvim'
 
   -- git
   use 'tpope/vim-fugitive'
@@ -98,6 +99,7 @@ require('nvim-treesitter').setup()
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+
 -- empty setup using defaults
 require("nvim-tree").setup({
   renderer = {
@@ -111,4 +113,19 @@ require("nvim-tree").setup({
     },
   },
 })
+
+vim.keymap.set('n', '<c-t>', ':NvimTreeFindFileToggle<CR>', {})
+
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', 'gf', builtin.find_files, {})
+vim.keymap.set('n', 'g/', builtin.live_grep, {})
+vim.keymap.set('n', '<Space>b', builtin.buffers, {})
+vim.keymap.set('n', '<Space>r', builtin.registers, {})
+vim.keymap.set('n', '<Space>g', builtin.git_status, {})
+vim.keymap.set('n', '<Space>t', ':Telescope<CR>t ', {})
+vim.keymap.set('n', 'gh', builtin.help_tags, {})
+vim.keymap.set('n', '<A-v>', '<C-v>', {})
+
 
