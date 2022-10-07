@@ -8,6 +8,6 @@ vim.g.mapleader = "<Space>"
 
 -- print test
 vim.keymap.set('n', '<Space>ht', function()
-	print("hello test")
+  print("hello test")
 end, {})
 
