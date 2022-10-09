@@ -147,18 +147,7 @@ return require('packer').startup(function(use)
         tag = 'nightly', -- optional, updated every week. (see issue #1193)
         config = function()
             -- empty setup using defaults
-            require("nvim-tree").setup({
-                renderer = {
-                    icons = {
-                        show = {
-                            file = false,
-                            folder = false,
-                            folder_arrow = false,
-                            -- git = false,
-                        },
-                    },
-                },
-            })
+            require("nvim-tree").setup()
             vim.keymap.set('n', '<c-t>', ':NvimTreeFindFileToggle<CR>', {})
         end
     }
@@ -172,11 +161,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    use { 'nvim-lualine/lualine.nvim',
-        config = function() require('lualine').setup() end
-    }
-    use { 'akinsho/bufferline.nvim', tag = "v2.*",
-        config = function() require('bufferline').setup() end
-    }
+    use { 'nvim-lualine/lualine.nvim', config = function() require('lualine').setup() end }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('bufferline').setup() end }
 
 end)
