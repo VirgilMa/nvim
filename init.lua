@@ -4,6 +4,7 @@ require('onedark').load()
 
 vim.wo.number = true
 vim.g.mapleader = "<Space>"
+vim.opt.tabstop=4
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded = 1
