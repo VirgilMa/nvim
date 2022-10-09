@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require('nvim-treesitter').setup {
-        ensure_installed = { "c", "python", "cpp", "rust", "lua"},
+        ensure_installed = { "c", "python", "cpp", "rust", "lua" },
         sync_install = false,
         auto_install = true,
         highlight = {
@@ -73,8 +73,8 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'BurntSushi/ripgrep'},
+      { 'nvim-lua/plenary.nvim' },
+      { 'BurntSushi/ripgrep' },
       -- {'kyazdani42/nvim-web-devicons'}
     },
     config = function()
@@ -94,7 +94,7 @@ return require('packer').startup(function(use)
 
   -- git
   use 'tpope/vim-fugitive'
-  use {'lewis6991/gitsigns.nvim',
+  use { 'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
       local gs = package.loaded.gitsigns
@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
         opts = opts or {}
         vim.keymap.set(mode, l, r, opts)
       end
+
       -- Navigation
       local function next_hunk()
         if vim.wo.diff then return ']c' end
@@ -116,29 +117,30 @@ return require('packer').startup(function(use)
         vim.schedule(function() gs.prev_hunk() end)
         return '<Ignore>'
       end
-      map('n', '<C-j>', next_hunk, {expr=true})
-      map('n', ']c', next_hunk, {expr=true})
-      map('n', '<C-k>', prev_hunk, {expr=true})
-      map('n', '[c', prev_hunk, {expr=true})
+
+      map('n', '<C-j>', next_hunk, { expr = true })
+      map('n', ']c', next_hunk, { expr = true })
+      map('n', '<C-k>', prev_hunk, { expr = true })
+      map('n', '[c', prev_hunk, { expr = true })
 
       -- Actions
-      map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-      map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+      map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+      map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
       map('n', '<leader>hS', gs.stage_buffer)
       map('n', '<leader>hu', gs.undo_stage_hunk)
       map('n', '<leader>hR', gs.reset_buffer)
       map('n', '<leader>hp', gs.preview_hunk)
-      map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+      map('n', '<leader>hb', function() gs.blame_line { full = true } end)
       map('n', '<leader>tb', gs.toggle_current_line_blame)
       map('n', '<leader>hd', gs.diffthis)
       map('n', '<leader>hD', function() gs.diffthis('~') end)
       map('n', '<leader>td', gs.toggle_deleted)
 
       -- Text object
-      map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+      map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
   }
-  
+
   -- diff view
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
@@ -205,7 +207,7 @@ return require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
-     -- 'kyazdani42/nvim-web-devicons', -- optional, for file icons
+      -- 'kyazdani42/nvim-web-devicons', -- optional, for file icons
     },
     tag = 'nightly', -- optional, updated every week. (see issue #1193)
     config = function()
@@ -214,10 +216,10 @@ return require('packer').startup(function(use)
         renderer = {
           icons = {
             show = {
-              file = false,	
-              folder = false,	
-              folder_arrow = false,	
-              -- git = false,	
+              file = false,
+              folder = false,
+              folder_arrow = false,
+              -- git = false,
             },
           },
         },
@@ -235,4 +237,3 @@ return require('packer').startup(function(use)
   })
 
 end)
-

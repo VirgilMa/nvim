@@ -18,4 +18,3 @@ end, {})
 require('plugins')
 require('coc')
 require('onedark').load()
-
