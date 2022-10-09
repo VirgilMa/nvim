@@ -7,7 +7,8 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.wo.number = true
-vim.opt.tabstop=4
+vim.opt.tabstop = 4
+vim.o.ignorecase = true
 
 -- print test
 vim.keymap.set('n', '<Space>ht', function()
