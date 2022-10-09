@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
   use { 'neoclide/coc.nvim', branch = 'release' }
 
   -- complete
-  use 'neovim/nvim-lspconfig'
+  -- use 'neovim/nvim-lspconfig'
   -- use 'hrsh7th/cmp-nvim-lsp'
   -- use 'hrsh7th/cmp-buffer'
   -- use 'hrsh7th/cmp-path'
@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
       vim.keymap.set('n', '<Space>b', builtin.buffers, {})
       vim.keymap.set('n', '<Space>r', builtin.registers, {})
       vim.keymap.set('n', '<Space>g', builtin.git_status, {})
-      vim.keymap.set('n', '<Space>t', ':Telescope<CR>t ', {})
+      vim.keymap.set('n', '<Space>t', ':Telescope<CR>', {})
       vim.keymap.set('n', 'gh', builtin.help_tags, {})
       vim.keymap.set('n', '<A-v>', '<C-v>', {})
     end
