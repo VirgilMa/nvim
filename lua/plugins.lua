@@ -3,6 +3,8 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -12,19 +14,12 @@ return require('packer').startup(function(use)
     -- coc
     use { 'neoclide/coc.nvim', branch = 'release' }
 
-    -- complete
-    -- use 'neovim/nvim-lspconfig'
-    -- use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use 'hrsh7th/cmp-path'
-    -- use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/nvim-cmp'
-
     -- tree-sitter
     use {
         'nvim-treesitter/nvim-treesitter',
         config = function()
-            require('nvim-treesitter').setup {
+            local tree = require('nvim-treesitter')
+            tree.setup {
                 ensure_installed = { "c", "python", "cpp", "rust", "lua" },
                 sync_install = false,
                 auto_install = true,
@@ -44,12 +39,6 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-
-    -- indent
-    -- use {
-    -- 	'nmac427/guess-indent.nvim',
-    -- 	config = function() require('guess-indent').setup {} end,
-    -- }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -123,9 +112,6 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- diff view
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-
     use { 'mhinz/vim-startify',
         config = function()
             vim.g.startify_custom_header =
@@ -174,6 +160,7 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- TODO: learn usage
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
