@@ -4,12 +4,15 @@
 vim.cmd [[packadd packer.nvim]]
 
 vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
+vim.keymap.set('n', 'gn', ':bn<CR>', {})
+vim.keymap.set('n', 'gp', ':bp<CR>', {})
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     use 'navarasu/onedark.nvim' -- onedark theme
+    use 'kyazdani42/nvim-web-devicons'
 
     -- coc
     use { 'neoclide/coc.nvim', branch = 'release' }
@@ -168,5 +171,12 @@ return require('packer').startup(function(use)
             require("nvim-surround").setup()
         end
     })
+
+    use { 'nvim-lualine/lualine.nvim',
+        config = function() require('lualine').setup() end
+    }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*",
+        config = function() require('bufferline').setup() end
+    }
 
 end)
