@@ -6,6 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
 vim.keymap.set('n', 'gn', ':bn<CR>', {})
 vim.keymap.set('n', 'gp', ':bp<CR>', {})
+vim.keymap.set('n', '<A-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>', {})
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -48,13 +49,15 @@ return require('packer').startup(function(use)
         requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'BurntSushi/ripgrep' },
+            { "nvim-telescope/telescope-live-grep-args.nvim" },
             -- {'kyazdani42/nvim-web-devicons'}
         },
         config = function()
             -- telescope
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', 'gf', builtin.find_files, {})
-            vim.keymap.set('n', 'g/', builtin.live_grep, {})
+            -- vim.keymap.set('n', 'g/', builtin.live_grep, {})
+            vim.keymap.set('n', 'g.', builtin.grep_string, {})
             vim.keymap.set('n', 'gj', builtin.jumplist, {})
             vim.keymap.set('n', '<Space>b', builtin.buffers, {})
             vim.keymap.set('n', '<Space>r', builtin.registers, {})
@@ -62,6 +65,8 @@ return require('packer').startup(function(use)
             vim.keymap.set('n', '<Space>t', ':Telescope<CR>', {})
             vim.keymap.set('n', 'gh', builtin.help_tags, {})
             vim.keymap.set('n', '<A-v>', '<C-v>', {})
+            require("telescope").load_extension("live_grep_args")
+            vim.keymap.set("n", "g/", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
         end
     }
     use 'nvim-telescope/telescope-symbols.nvim'
@@ -114,6 +119,7 @@ return require('packer').startup(function(use)
             map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end
     }
+    use { 'APZelos/blamer.nvim', config = function() vim.g.blamer_enabled = true end }
 
     use { 'mhinz/vim-startify',
         config = function()
