@@ -169,5 +169,6 @@ return require('packer').startup(function(use)
 
     use { 'nvim-lualine/lualine.nvim', config = function() require('lualine').setup() end }
     use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('bufferline').setup() end }
+    use { 'voldikss/vim-translator' }
 
 end)
