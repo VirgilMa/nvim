@@ -56,7 +56,7 @@ return require('packer').startup(function(use)
             -- telescope
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<Space>f', builtin.find_files, {})
-            -- vim.keymap.set('n', 'g/', builtin.live_grep, {})
+            vim.keymap.set('n', '<Space>/', builtin.live_grep, {})
             vim.keymap.set('n', '<Space>.', builtin.grep_string, {})
             vim.keymap.set('n', '<Space>j', builtin.jumplist, {})
             vim.keymap.set('n', '<Space>b', builtin.buffers, {})
@@ -65,8 +65,8 @@ return require('packer').startup(function(use)
             vim.keymap.set('n', '<Space>t', ':Telescope<CR>', {})
             vim.keymap.set('n', '<Space>h', builtin.help_tags, {})
             vim.keymap.set('n', '<A-v>', '<C-v>', {})
-            require("telescope").load_extension("live_grep_args")
-            vim.keymap.set("n", "<Sapce>/", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+            -- require("telescope").load_extension("live_grep_args")
+            -- vim.keymap.set("n", "<Sapce>/", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
         end
     }
     use 'nvim-telescope/telescope-symbols.nvim'
