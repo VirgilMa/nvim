@@ -3,9 +3,12 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
 vim.keymap.set('n', 'gn', ':bn<CR>', {})
 vim.keymap.set('n', 'gp', ':bp<CR>', {})
+
+vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
+vim.keymap.set('n', '<Space>d', ':bd<CR>', {})
+
 vim.keymap.set('n', '<A-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>', {})
 
 return require('packer').startup(function(use)
@@ -170,5 +173,17 @@ return require('packer').startup(function(use)
     use { 'nvim-lualine/lualine.nvim', config = function() require('lualine').setup() end }
     use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('bufferline').setup() end }
     use { 'voldikss/vim-translator' }
+
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 
 end)
