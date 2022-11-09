@@ -8,6 +8,7 @@ vim.keymap.set('n', 'gp', ':bp<CR>', {})
 
 vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
 vim.keymap.set('n', '<Space>d', ':bd<CR>', {})
+-- vim.keymap.set('n', '<C-W>', ':bd<CR>', {}) c-w is used by window management
 
 vim.keymap.set('n', '<A-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>', {})
 
@@ -59,7 +60,7 @@ return require('packer').startup(function(use)
             -- telescope
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<Space>f', builtin.find_files, {})
-            vim.keymap.set('n', '<Space>/', builtin.live_grep, {})
+            -- vim.keymap.set('n', '<Space>/', builtin.live_grep, {})
             vim.keymap.set('n', '<Space>.', builtin.grep_string, {})
             vim.keymap.set('n', '<Space>j', builtin.jumplist, {})
             vim.keymap.set('n', '<Space>b', builtin.buffers, {})
@@ -174,16 +175,20 @@ return require('packer').startup(function(use)
     use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('bufferline').setup() end }
     use { 'voldikss/vim-translator' }
 
-    use {
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
+    -- need nvim 8.0
+    -- use {
+    --     "folke/todo-comments.nvim",
+    --     requires = "nvim-lua/plenary.nvim",
+    --     config = function()
+    --         require("todo-comments").setup {
+    --             -- your configuration comes here
+    --             -- or leave it empty to use the default settings
+    --             -- refer to the configuration section below
+    --         }
+    --     end
+    -- }
+    --
+
+    use "vimwiki/vimwiki"
 
 end)
