@@ -10,6 +10,9 @@ vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
 vim.keymap.set('n', '<Space>d', ':bd<CR>', {})
 -- vim.keymap.set('n', '<C-W>', ':bd<CR>', {}) c-w is used by window management
 
+-- fugitive
+vim.keymap.set('n', '<leader>h', ':Gclog -- %<CR>', {})
+
 vim.keymap.set('n', '<A-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>', {})
 
 return require('packer').startup(function(use)
@@ -60,7 +63,7 @@ return require('packer').startup(function(use)
             -- telescope
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<Space>f', builtin.find_files, {})
-            -- vim.keymap.set('n', '<Space>/', builtin.live_grep, {})
+            vim.keymap.set('n', '<Space>/', builtin.live_grep, {})
             vim.keymap.set('n', '<Space>.', builtin.grep_string, {})
             vim.keymap.set('n', '<Space>j', builtin.jumplist, {})
             vim.keymap.set('n', '<Space>b', builtin.buffers, {})
@@ -172,7 +175,10 @@ return require('packer').startup(function(use)
     })
 
     use { 'nvim-lualine/lualine.nvim', config = function() require('lualine').setup() end }
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('bufferline').setup() end }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function()
+        vim.opt.termguicolors = true
+        require('bufferline').setup()
+    end }
     use { 'voldikss/vim-translator' }
 
     -- need nvim 8.0
