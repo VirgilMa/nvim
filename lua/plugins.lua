@@ -8,6 +8,8 @@ vim.keymap.set('n', 'gp', ':bp<CR>', {})
 
 vim.keymap.set('n', '<Space>hl', ':TSEnable highlight<CR>', {})
 vim.keymap.set('n', '<Space>d', ':bd<CR>', {})
+vim.keymap.set('n', '<leader>d', ':bd<CR>', {})
+vim.keymap.set('n', '<Space>x', ':bd<CR>', {})
 -- vim.keymap.set('n', '<C-W>', ':bd<CR>', {}) c-w is used by window management
 
 -- fugitive
@@ -178,6 +180,7 @@ return require('packer').startup(function(use)
     use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function()
         vim.opt.termguicolors = true
         require('bufferline').setup()
+        vim.keymap.set('n', '<leader>o', ':BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>', {})
     end }
     use { 'voldikss/vim-translator' }
 
