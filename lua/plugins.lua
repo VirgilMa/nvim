@@ -14,6 +14,7 @@ vim.keymap.set('n', '<Space>x', ':bd<CR>', {})
 
 -- fugitive
 vim.keymap.set('n', '<leader>h', ':Gclog -- %<CR>', {})
+vim.keymap.set('n', '<leader>g', ':G blame<CR>', {})
 
 vim.keymap.set('n', '<A-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>', {})
 
