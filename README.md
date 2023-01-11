@@ -4,7 +4,7 @@ VirgilMa's neovim configuration
 
 ## Configuration Setup
 
-1. Install neovim
+1. Install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 2. Install [packer](https://github.com/wbthomason/packer.nvim)
 ```bash
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
