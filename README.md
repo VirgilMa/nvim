@@ -14,7 +14,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 ```bash
 git clone git@github.com:VirgilMa/nvim.git ~/.config
 ```
-4. Run nvim and run the following commands to install plugins:
+4. Run nvim and run the following command to install plugins:
 ```
 :PackerInstall
 ```
