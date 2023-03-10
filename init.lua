@@ -24,4 +24,5 @@ end, {})
 
 require('plugins')
 require('coc')
+require('profile')
 require('onedark').load()

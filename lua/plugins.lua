@@ -18,6 +18,7 @@ vim.keymap.set('n', '<leader>g', ':G blame<CR>', {})
 
 vim.keymap.set('n', '<A-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>', {})
 
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -38,7 +39,7 @@ return require('packer').startup(function(use)
                 sync_install = false,
                 auto_install = true,
                 highlight = {
-                    enable = true,
+                    enable = false,
                     additional_vim_regex_highlighting = false,
                 }
             }
@@ -84,6 +85,9 @@ return require('packer').startup(function(use)
     -- git
     use 'tpope/vim-fugitive'
     use { 'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
         config = function()
             require('gitsigns').setup()
             local gs = package.loaded.gitsigns
@@ -200,5 +204,5 @@ return require('packer').startup(function(use)
     --
 
     use "vimwiki/vimwiki"
-
+    use "stevearc/profile.nvim"
 end)
