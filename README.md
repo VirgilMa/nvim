@@ -11,8 +11,9 @@ VirgilMa's neovim configuration
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
-3. Clone [VirgilMa/nvim](https://github.com/virgilma/nvim) into ~/.config
+3. Clone [VirgilMa/nvim](https://github.com/virgilma/nvim) into neovim configuration directory
 ```bash
+# unix, linux
 git clone git@github.com:VirgilMa/nvim.git ~/.config
 ```
 4. Run nvim and run the following command to install plugins:
