@@ -7,6 +7,7 @@ VirgilMa's neovim configuration
 1. Install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 2. Install [packer](https://github.com/wbthomason/packer.nvim)
 ```bash
+# unix, linux
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
