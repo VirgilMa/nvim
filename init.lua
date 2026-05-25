@@ -1,5 +1,5 @@
 -- need to be before all other map configurations
-vim.g.mapleader = ";"
+-- vim.g.mapleader = ";"
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded = 1
@@ -18,12 +18,12 @@ vim.keymap.set('t', '<esc>', '<C-\\><C-n>', {})
 vim.keymap.set('t', '<c-[>', '<C-\\><C-n>', {})
 
 -- print test
-vim.keymap.set('n', '<Space>ht', function()
-    print("hello test")
-end, {})
+vim.keymap.set(
+    'n', '<Space>ht', function()
+        print("hello test")
+    end, {}
+)
 
--- require('plugins')
--- require('coc')
--- require('profile')
--- require('onedark').load()
-require('vscodeCustom')
+if not vim.g.vscode then
+    require("config.lazy")
+end
